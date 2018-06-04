@@ -10,4 +10,6 @@
         ">
     <mvc:annotation-driven/>
     <context:component-scan base-package="cothe.controllers"/>
+    <mvc:default-servlet-handler />
+
 </beans>
