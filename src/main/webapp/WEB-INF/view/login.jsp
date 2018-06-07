@@ -10,8 +10,6 @@
 <h1>Custom login page</h1>
 <c:url value="/login" var="loginUrl"/>
 <form action="${loginUrl}" method="post">
-    ${loginUrl}
-    ${param.toString()}
     <c:if test="${param.error != null}">
         <p>
             Invalid username and password.

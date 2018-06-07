@@ -1,7 +1,14 @@
 plugins {
     id 'java'
     id 'war'
-    id 'org.akhikhl.gretty' version '1.4.2'
+    id "org.akhikhl.gretty" version "2.0.0"
+}
+
+gretty{
+    servletContainer = 'tomcat8'
+    managedClassReload = true
+    fastReload=true
+    contextPath='/'
 }
 
 repositories {
@@ -9,14 +16,16 @@ repositories {
 }
 
 dependencies {
-    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'org.springframework:spring-webmvc:5.0.5.RELEASE'
+
     compile 'org.springframework.security:spring-security-web:5.0.5.RELEASE'
     compile 'org.springframework.security:spring-security-config:5.0.5.RELEASE'
-    compile 'org.springframework:spring-jdbc:5.0.5.RELEASE'
-    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
 
-//    compile group: 'tomcat', name: 'tomcat-util', version: '5.5.23'
+
+    compile 'org.springframework:spring-jdbc:5.0.5.RELEASE'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.8'
 
     compile 'javax.servlet:jstl:1.2'
     testCompile 'junit:junit:4.12'
